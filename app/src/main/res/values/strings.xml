@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Banco-ivtogi</string>
+    <string name="title_login">Iniciar sesión</string>
+    <string name="til_user">Introduce el usuario</string>
+    <string name="input_required">Campo obligatorio</string>
+    <string name="til_password">Introduce la contraseña</string>
+    <string name="login_button">Entrar</string>
+    <string name="exit_button">Salir</string>
+    <string name="error_login">Tienes que introducir el usuario y contraseña</string>
+    <string name="bank_button">Crea una nueva cuenta</string>
+</resources>

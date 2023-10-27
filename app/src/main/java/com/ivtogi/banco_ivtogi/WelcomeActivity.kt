@@ -1,8 +1,8 @@
 package com.ivtogi.banco_ivtogi
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.ivtogi.banco_ivtogi.databinding.ActivityWelcomeBinding
 
 class WelcomeActivity : AppCompatActivity() {

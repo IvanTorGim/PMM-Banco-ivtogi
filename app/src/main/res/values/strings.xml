@@ -17,4 +17,7 @@
     <string name="ivUser">Imagen de perfil</string>
     <string name="tvWelcome">Bienvenido/a a mi banco</string>
     <string name="btnEnter">Entrar</string>
+    <string name="til_old_password">Introduce la contraseña</string>
+    <string name="til_new_password">Introduce la nueva contraseña</string>
+    <string name="acept_button">Aceptar</string>
 </resources>

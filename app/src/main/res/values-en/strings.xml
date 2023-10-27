@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Banco-ivtogi</string>
+    <string name="title_login">Log in</string>
+    <string name="til_user">Enter the user</string>
+    <string name="input_required">Obligatory field</string>
+    <string name="til_password">Enter the password</string>
+    <string name="login_button">Log in</string>
+    <string name="exit">Exit</string>
+    <string name="error_login">You have to enter the username and password</string>
+    <string name="bank_button">Create a new account</string>
+    <string name="global_position">Global position</string>
+    <string name="movements">Movements</string>
+    <string name="transfers">Transfers</string>
+    <string name="change_password">Change Password</string>
+    <string name="promotions">Promotions</string>
+    <string name="cashiers">Cashier</string>
+    <string name="ivUser">Profile picture</string>
+    <string name="tvWelcome">Welcome to my bank</string>
+    <string name="btnEnter">Enter</string>
+    <string name="til_old_password">Enter the password</string>
+    <string name="til_new_password">Enter the new password</string>
+    <string name="acept_button">Accept</string>
+</resources>

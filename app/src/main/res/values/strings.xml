@@ -15,4 +15,6 @@
     <string name="promotions">Promociones</string>
     <string name="cashiers">Cajeros</string>
     <string name="ivUser">Imagen de perfil</string>
+    <string name="tvWelcome">Bienvenido/a a mi banco</string>
+    <string name="btnEnter">Entrar</string>
 </resources>

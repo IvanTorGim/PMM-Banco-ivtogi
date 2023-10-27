@@ -21,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
             user = binding.tilUser.editText?.text.toString()
             password = binding.tilPassword.editText?.text.toString()
 
-            if (user.isNullOrBlank() || password.isNullOrBlank()) {
+            if (user.isBlank() || password.isBlank()) {
                 Snackbar.make(binding.root, R.string.error_login, Snackbar.LENGTH_LONG).show()
             } else {
                 val intent = Intent(this, MainActivity::class.java)

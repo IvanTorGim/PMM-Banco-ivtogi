@@ -3,6 +3,5 @@
     <dimen name="margin_default">8dp</dimen>
     <dimen name="title_margin">32dp</dimen>
     <dimen name="til_margin">32dp</dimen>
-    <dimen name="btn_width">150dp</dimen>
     <dimen name="img_user">80dp</dimen>
 </resources>

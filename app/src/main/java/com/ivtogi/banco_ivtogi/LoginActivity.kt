@@ -17,10 +17,6 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
-
-
         binding.btnLogin.setOnClickListener {
             user = binding.tilUser.editText?.text.toString()
             password = binding.tilPassword.editText?.text.toString()

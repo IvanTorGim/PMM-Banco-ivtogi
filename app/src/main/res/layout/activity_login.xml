@@ -61,8 +61,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
-        android:layout_width="@dimen/btn_width"
-        android:layout_height="wrap_content"
+        style="@style/loginBtn"
         android:text="@string/login_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnExit"
@@ -71,9 +70,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnExit"
-        android:layout_width="@dimen/btn_width"
-        android:layout_height="wrap_content"
-        android:text="@string/exit_button"
+        style="@style/loginBtn"
+        android:text="@string/exit"
         app:layout_constraintBottom_toBottomOf="@id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnLogin"

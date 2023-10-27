@@ -6,4 +6,22 @@
     </style>
 
     <style name="Theme.Bancoivtogi" parent="Base.Theme.Bancoivtogi" />
+    android:layout_width="@dimen/btn_width"
+    android:layout_height="wrap_content"
+
+    <style name="loginBtn">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/primary</item>
+    </style>
+
+    <style name="mainBtn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
 </resources>

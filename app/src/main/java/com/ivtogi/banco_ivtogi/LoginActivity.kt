@@ -26,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("USERNAME", user)
+                intent.putExtra("PASSWORD", password)
                 startActivity(intent)
             }
         }

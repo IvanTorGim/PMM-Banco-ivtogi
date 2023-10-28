@@ -4,7 +4,7 @@
     <string name="til_user">Introduce el usuario</string>
     <string name="input_required">Campo obligatorio</string>
     <string name="til_password">Introduce la contraseña</string>
-    <string name="login_button">Entrar</string>
+    <string name="login_button">Iniciar</string>
     <string name="exit">Salir</string>
     <string name="error_login">Tienes que introducir el usuario y contraseña</string>
     <string name="bank_button">Crea una nueva cuenta</string>
@@ -20,4 +20,7 @@
     <string name="til_old_password">Introduce la contraseña</string>
     <string name="til_new_password">Introduce la nueva contraseña</string>
     <string name="acept_button">Aceptar</string>
+    <string name="welcome">Bienvenido/a \n%1$s</string>
+    <string name="error_match_password">La contraseña no coincide</string>
+    <string name="empty_field">El campo no puede estar vacío</string>
 </resources>

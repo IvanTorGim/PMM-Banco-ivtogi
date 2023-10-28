@@ -20,4 +20,8 @@
     <string name="til_old_password">Enter the password</string>
     <string name="til_new_password">Enter the new password</string>
     <string name="acept_button">Accept</string>
+    <string name="welcome">Welcome \n%1$s</string>
+    <string name="error_match_password">Password does not match</string>
+    <string name="empty_field">The field cannot be empty</string>
+
 </resources>

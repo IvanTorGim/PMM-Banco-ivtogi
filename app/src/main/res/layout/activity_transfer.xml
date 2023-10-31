@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TransferActivity">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/titleTV"
+        android:text="@string/transfers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvChooseAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:text="@string/choose_account"
+        app:layout_constraintBottom_toTopOf="@+id/sprOriginAccount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <Spinner
+        android:id="@+id/sprOriginAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/sprHeight"
+        app:layout_constraintBottom_toTopOf="@+id/rgTypeAccount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvChooseAccount" />
+
+    <RadioGroup
+        android:id="@+id/rgTypeAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/sprDestinationAccount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sprOriginAccount">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/own_account" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/third_party_account" />
+    </RadioGroup>
+
+    <Spinner
+        android:id="@+id/sprDestinationAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/sprHeight"
+        app:layout_constraintBottom_toTopOf="@+id/tvAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgTypeAccount" />
+
+    <EditText
+        android:id="@+id/etDestinationAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/tvAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgTypeAccount" />
+
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:text="@string/amount"
+        app:layout_constraintBottom_toTopOf="@+id/cbProof"
+        app:layout_constraintEnd_toStartOf="@+id/etAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sprDestinationAccount" />
+
+    <EditText
+        android:id="@id/etAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvAmount"
+        app:layout_constraintEnd_toStartOf="@+id/sprCoin"
+        app:layout_constraintStart_toEndOf="@+id/tvAmount"
+        app:layout_constraintTop_toTopOf="@+id/tvAmount" />
+
+    <Spinner
+        android:id="@+id/sprCoin"
+        android:layout_width="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_height="@dimen/sprHeight"
+        app:layout_constraintBottom_toBottomOf="@id/tvAmount"
+        app:layout_constraintStart_toEndOf="@+id/etAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvAmount" />
+
+    <CheckBox
+        android:id="@+id/cbProof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cbProof"
+        app:layout_constraintBottom_toTopOf="@+id/btnSend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAmount" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSend"
+        style="@style/btnSend"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnCancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbProof" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCancel"
+        style="@style/btnCancel"
+        app:layout_constraintBottom_toBottomOf="@id/btnSend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnSend"
+        app:layout_constraintTop_toTopOf="@id/btnSend" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

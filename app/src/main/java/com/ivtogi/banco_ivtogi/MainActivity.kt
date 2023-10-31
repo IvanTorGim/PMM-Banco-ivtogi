@@ -16,7 +16,15 @@ class MainActivity : AppCompatActivity() {
 
         showWelcome()
         changePasswordActivity()
+        transferActivity()
         exit()
+    }
+
+    private fun transferActivity() {
+       binding.btnTransfers.setOnClickListener{
+           val intent = Intent(this, TransferActivity::class.java)
+           startActivity(intent)
+        }
     }
 
     private fun showWelcome() {

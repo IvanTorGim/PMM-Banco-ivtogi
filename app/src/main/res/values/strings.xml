@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Banco-ivtogi</string>
+
+    <!--  WELCOME  -->
+    <string name="btnEnter">Entrar</string>
+    <string name="tvWelcome">Bienvenido/a a mi banco</string>
+
+    <!--  LOGIN  -->
     <string name="title_login">Iniciar sesión</string>
     <string name="til_user">Introduce el usuario</string>
     <string name="input_required">Campo obligatorio</string>
@@ -7,6 +13,9 @@
     <string name="login_button">Iniciar</string>
     <string name="exit">Salir</string>
     <string name="error_login">Tienes que introducir el usuario y contraseña</string>
+
+    <!--  MAIN  -->
+    <string name="welcome">Bienvenido/a \n%1$s</string>
     <string name="bank_button">Crea una nueva cuenta</string>
     <string name="global_position">Posición global</string>
     <string name="movements">Movimientos</string>
@@ -15,12 +24,21 @@
     <string name="promotions">Promociones</string>
     <string name="cashiers">Cajeros</string>
     <string name="ivUser">Imagen de perfil</string>
-    <string name="tvWelcome">Bienvenido/a a mi banco</string>
-    <string name="btnEnter">Entrar</string>
+
+    <!--  CHANGE PASSWORD  -->
     <string name="til_old_password">Introduce la contraseña</string>
     <string name="til_new_password">Introduce la nueva contraseña</string>
     <string name="acept_button">Aceptar</string>
-    <string name="welcome">Bienvenido/a \n%1$s</string>
     <string name="error_match_password">La contraseña no coincide</string>
     <string name="empty_field">El campo no puede estar vacío</string>
+
+    <!--  TRANSFERS  -->
+    <string name="choose_account">Elige tu cuenta</string>
+    <string name="own_account">Cuenta propia</string>
+    <string name="third_party_account">Cuenta ajena</string>
+    <string name="btnSend">Enviar</string>
+    <string name="btnCancel">Cancelar</string>
+    <string name="amount">Cantidad:</string>
+    <string name="cbProof">Enviar justificante</string>
+
 </resources>

@@ -4,4 +4,5 @@
     <dimen name="title_margin">32dp</dimen>
     <dimen name="til_margin">32dp</dimen>
     <dimen name="img_user">80dp</dimen>
+    <dimen name="sprHeight">48dp</dimen>
 </resources>

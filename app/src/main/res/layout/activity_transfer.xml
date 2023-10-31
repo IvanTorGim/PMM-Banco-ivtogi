@@ -37,6 +37,7 @@
         android:id="@+id/rgTypeAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:checkedButton="@id/rbOwnAccount"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/sprDestinationAccount"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,12 +45,14 @@
         app:layout_constraintTop_toBottomOf="@+id/sprOriginAccount">
 
         <RadioButton
+            android:id="@+id/rbOwnAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/own_account" />
 
         <RadioButton
+            android:id="@+id/rbThirdPartyAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/third_party_account" />
@@ -69,6 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:inputType="text"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/tvAmount"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,9 +93,10 @@
     <EditText
         android:id="@id/etAmount"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
+        android:layout_height="48dp"
+        android:hint="@string/amount"
         android:layout_marginHorizontal="16dp"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@id/tvAmount"
         app:layout_constraintEnd_toStartOf="@+id/sprCoin"
         app:layout_constraintStart_toEndOf="@+id/tvAmount"
@@ -100,11 +105,11 @@
     <Spinner
         android:id="@+id/sprCoin"
         android:layout_width="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_height="@dimen/sprHeight"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@id/tvAmount"
-        app:layout_constraintStart_toEndOf="@+id/etAmount"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etAmount"
         app:layout_constraintTop_toTopOf="@id/tvAmount" />
 
     <CheckBox
@@ -133,13 +138,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnSend"
         app:layout_constraintTop_toTopOf="@id/btnSend" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="205dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,6 +40,7 @@
     <string name="btnCancel">Cancel</string>
     <string name="amount">Amount:</string>
     <string name="cbProof">Send proof</string>
+    <string name="accept_message">Origen account:\n%1$s\nDestination account:\n%2$sAmount: %3$s%4$s</string>
 
 
 </resources>

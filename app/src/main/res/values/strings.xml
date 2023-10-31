@@ -40,5 +40,5 @@
     <string name="btnCancel">Cancelar</string>
     <string name="amount">Cantidad:</string>
     <string name="cbProof">Enviar justificante</string>
-
+    <string name="accept_message">Cuenta origen:\n%1$s\nCuenta destino:\n%2$sImporte: %3$s%4$s</string>
 </resources>

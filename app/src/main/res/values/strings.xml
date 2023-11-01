@@ -40,5 +40,8 @@
     <string name="btnCancel">Cancelar</string>
     <string name="amount">Cantidad:</string>
     <string name="cbProof">Enviar justificante</string>
-    <string name="accept_message">Cuenta origen:\n%1$s\nCuenta destino:\n%2$sImporte: %3$s%4$s</string>
+    <string name="accept_message">Cuenta origen:\n%1$s\nCuenta destino:\n%2$s\nImporte: %3$s%4$s</string>
+    <string name="accept_proof_message">Cuenta origen:\n%1$s\nCuenta destino:\n%2$s\nImporte: %3$s%4$s\nEnviar justificante</string>
+    <string name="et_third_party_account">Introduce el número de cuenta</string>
+    <string name="et_amount">Introduce la cantidad</string>
 </resources>

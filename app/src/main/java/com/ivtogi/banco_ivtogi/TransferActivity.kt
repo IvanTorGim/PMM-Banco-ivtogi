@@ -2,13 +2,10 @@ package com.ivtogi.banco_ivtogi
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Adapter
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ivtogi.banco_ivtogi.databinding.ActivityTransferBinding
-import java.time.Duration
 
 class TransferActivity : AppCompatActivity() {
 
@@ -28,51 +25,66 @@ class TransferActivity : AppCompatActivity() {
         binding.btnCancel.setOnClickListener {
             loadAccountSpinner()
             loadCoinSpinner()
-            binding.etAmount.text.clear()
-            binding.etDestinationAccount.text.clear()
-            binding.cbProof.isChecked = false
+            binding.apply {
+                etAmount.text.clear()
+                etDestinationAccount.text.clear()
+                cbProof.isChecked = false
+            }
         }
     }
 
     private fun accept() {
-
-
         binding.btnSend.setOnClickListener {
+            var accountOrigin: String
+            var accountDestination: String
+            var amount: String
+            var coin: String
+            var message: String
 
-            val accountOrigin = binding.sprOriginAccount.selectedItem.toString()
+            binding.apply {
+                accountOrigin = sprOriginAccount.selectedItem.toString()
 
-            val accountDestination =
-                if (binding.rbOwnAccount.isChecked)
-                    binding.sprDestinationAccount.selectedItem.toString()
-                else
-                    binding.etDestinationAccount.text.toString()
+                accountDestination =
+                    if (rbOwnAccount.isChecked) sprDestinationAccount.selectedItem.toString()
+                    else etDestinationAccount.text.toString()
 
-            val amount = binding.etAmount.text.toString()
+                amount = etAmount.text.toString()
 
-            val coin = binding.sprCoin.selectedItem.toString()
+                coin = sprCoin.selectedItem.toString()
 
-            val message =
-                getString(R.string.accept_message, accountOrigin, accountDestination, amount, coin)
+                message = if (cbProof.isChecked) getString(
+                    R.string.accept_proof_message, accountOrigin, accountDestination, amount, coin
+                )
+                else getString(
+                    R.string.accept_message, accountOrigin, accountDestination, amount, coin
+                )
+            }
 
-
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            if (accountOrigin.isNotBlank() && accountDestination.isNotBlank()
+                && amount.isNotBlank() && coin.isNotBlank()
+            )
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun typeAccount() {
-        binding.rbOwnAccount.setOnClickListener {
-            binding.etDestinationAccount.visibility = View.INVISIBLE
-            binding.sprDestinationAccount.visibility = View.VISIBLE
+        binding.apply {
+            rbOwnAccount.setOnClickListener {
+                etDestinationAccount.visibility = View.INVISIBLE
+                sprDestinationAccount.visibility = View.VISIBLE
+            }
+            rbThirdPartyAccount.setOnClickListener {
+                sprDestinationAccount.visibility = View.INVISIBLE
+                etDestinationAccount.visibility = View.VISIBLE
+            }
         }
-        binding.rbThirdPartyAccount.setOnClickListener {
-            binding.sprDestinationAccount.visibility = View.INVISIBLE
-            binding.etDestinationAccount.visibility = View.VISIBLE
-        }
+
 
     }
 
     private fun loadCoinSpinner() {
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, getCoins())
+        val adapter =
+            ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, getCoins())
         binding.sprCoin.adapter = adapter
     }
 

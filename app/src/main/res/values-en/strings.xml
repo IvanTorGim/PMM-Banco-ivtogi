@@ -40,7 +40,8 @@
     <string name="btnCancel">Cancel</string>
     <string name="amount">Amount:</string>
     <string name="cbProof">Send proof</string>
-    <string name="accept_message">Origen account:\n%1$s\nDestination account:\n%2$sAmount: %3$s%4$s</string>
-
-
+    <string name="accept_message">Origen account:\n%1$s\nDestination account:\n%2$s\nAmount: %3$s%4$s</string>
+    <string name="accept_proof_message">Origen account:\n%1$s\nDestination account:\n%2$s\nAmount: %3$s%4$s\nSend proof</string>
+    <string name="et_third_party_account">Enter the account number</string>
+    <string name="et_amount">Enter the amount</string>
 </resources>

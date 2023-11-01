@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun transferActivity() {
-       binding.btnTransfers.setOnClickListener{
-           val intent = Intent(this, TransferActivity::class.java)
-           startActivity(intent)
+        binding.btnTransfers.setOnClickListener {
+            val intent = Intent(this, TransferActivity::class.java)
+            startActivity(intent)
         }
     }
 

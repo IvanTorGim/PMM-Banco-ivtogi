@@ -12,7 +12,7 @@
     <string name="til_password">Introduce la contraseña</string>
     <string name="login_button">Iniciar</string>
     <string name="exit">Salir</string>
-    <string name="error_login">Tienes que introducir el usuario y contraseña</string>
+    <string name="error_login">El usuario o contraseña son erróneos</string>
 
     <!--  MAIN  -->
     <string name="welcome">Bienvenido/a \n%1$s</string>

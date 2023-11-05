@@ -17,8 +17,8 @@ class ChangePasswordActivity : AppCompatActivity() {
     }
 
     private fun newPasswordMatch(): Boolean {
-        val newPassword: String = binding.tilNewPassword.editText?.text.toString()
-        val confirmPassword: String = binding.tilConfirmPassword.editText?.text.toString()
+        val newPassword: String = binding.tietNewPassword.text.toString()
+        val confirmPassword: String = binding.tietConfirmPassword.text.toString()
 
         binding.tilNewPassword.isErrorEnabled = false
         binding.tilConfirmPassword.isErrorEnabled = false
@@ -35,7 +35,7 @@ class ChangePasswordActivity : AppCompatActivity() {
     }
 
     private fun oldPasswordMatch(password: String?): Boolean {
-        val oldPassword: String = binding.tilOldPassword.editText?.text.toString()
+        val oldPassword: String = binding.tietOldPassword.text.toString()
 
         binding.tilOldPassword.isErrorEnabled = false
 

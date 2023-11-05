@@ -1,16 +1,16 @@
 package com.ivtogi.banco_ivtogi
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.ivtogi.banco_ivtogi.bd.MiBancoOperacional
 import com.ivtogi.banco_ivtogi.databinding.ActivityLoginBinding
+import com.ivtogi.banco_ivtogi.pojo.Cliente
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var user: String
-    private lateinit var password: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,17 +18,24 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener {
-            user = binding.tilUser.editText?.text.toString()
-            password = binding.tilPassword.editText?.text.toString()
 
-            if (user.isBlank() || password.isBlank()) {
-                Snackbar.make(binding.root, R.string.error_login, Snackbar.LENGTH_LONG).show()
+            val bancoOperacional = MiBancoOperacional?.getInstance(this)
+            val client = Cliente()
+
+            client.setNif(binding.tietUser.text.toString())
+            client.setClaveSeguridad(binding.tietPassword.text.toString())
+
+            val logged = bancoOperacional?.login(client) ?: -1
+
+            if (logged == -1) {
+                Toast.makeText(this, getString(R.string.error_login), Toast.LENGTH_SHORT)
+                    .show()
             } else {
                 val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("USERNAME", user)
-                intent.putExtra("PASSWORD", password)
+                intent.putExtra("LOGGED", logged)
                 startActivity(intent)
             }
+
         }
 
         binding.btnExit.setOnClickListener {

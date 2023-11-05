@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ivtogi.banco_ivtogi.databinding.ActivityMainBinding
+import com.ivtogi.banco_ivtogi.pojo.Cliente
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,8 +29,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showWelcome() {
-        val username: String? = intent.getStringExtra("USERNAME")
-        binding.tvUser.text = getString(R.string.welcome, username)
+        val user: Cliente? = intent.getSerializableExtra("LOGGED") as Cliente
+        binding.tvUser.text = getString(R.string.welcome, user?.getNombre())
     }
 
     private fun exit() {

@@ -31,6 +31,8 @@
     <string name="acept_button">Accept</string>
     <string name="error_match_password">Password does not match</string>
     <string name="empty_field">The field cannot be empty</string>
+    <string name="error_change_password">The password could not be updated</string>
+
 
     <!--  TRANSFERS  -->
     <string name="choose_account">Choose your account</string>
@@ -44,5 +46,8 @@
     <string name="accept_proof_message">Origen account:\n%1$s\nDestination account:\n%2$s\nAmount: %3$s%4$s\nSend proof</string>
     <string name="et_third_party_account">Enter the account number</string>
     <string name="et_amount">Enter the amount</string>
+
+    <!--  GLOBAL POSITION  -->
+    <string name="accounts">Accounts:</string>
 
 </resources>

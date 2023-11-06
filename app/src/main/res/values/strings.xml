@@ -31,6 +31,8 @@
     <string name="acept_button">Aceptar</string>
     <string name="error_match_password">La contraseña no coincide</string>
     <string name="empty_field">El campo no puede estar vacío</string>
+    <string name="error_change_password">No se a podido actualizar la contraseña</string>
+
 
     <!--  TRANSFERS  -->
     <string name="choose_account">Elige tu cuenta</string>
@@ -44,4 +46,8 @@
     <string name="accept_proof_message">Cuenta origen:\n%1$s\nCuenta destino:\n%2$s\nImporte: %3$s%4$s\nEnviar justificante</string>
     <string name="et_third_party_account">Introduce el número de cuenta</string>
     <string name="et_amount">Introduce la cantidad</string>
+
+    <!--  GLOBAL POSITION  -->
+    <string name="accounts">Cuentas:</string>
+
 </resources>

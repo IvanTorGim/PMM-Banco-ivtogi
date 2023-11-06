@@ -1,17 +1,26 @@
 package com.ivtogi.banco_ivtogi
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.ivtogi.banco_ivtogi.bd.MiBancoOperacional
 import com.ivtogi.banco_ivtogi.databinding.ActivityChangePasswordBinding
+import com.ivtogi.banco_ivtogi.pojo.Cliente
 
 class ChangePasswordActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityChangePasswordBinding
+    private lateinit var user: Cliente
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChangePasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        user = intent.getSerializableExtra("user") as Cliente
+
         changePassword()
         exit()
     }
@@ -49,9 +58,27 @@ class ChangePasswordActivity : AppCompatActivity() {
 
     private fun changePassword() {
         binding.btnAccept.setOnClickListener {
-            val password: String? = intent.getStringExtra("PASSWORD")
-            if (oldPasswordMatch(password) && newPasswordMatch())
-                finish()
+            val password: String = user.getClaveSeguridad().toString()
+            val bancoOperacional: MiBancoOperacional? = MiBancoOperacional.getInstance(this)
+
+            if (oldPasswordMatch(password) && newPasswordMatch()) {
+
+                user.setClaveSeguridad(binding.tietNewPassword.text.toString())
+
+                if (bancoOperacional?.changePassword(user) == 0) {
+                    Toast.makeText(
+                        this,
+                        getString(R.string.error_change_password),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    val newUser = bancoOperacional?.login(user)
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("user", newUser)
+                    startActivity(intent)
+                }
+            }
+
         }
 
     }

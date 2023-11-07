@@ -62,7 +62,6 @@ class ChangePasswordActivity : AppCompatActivity() {
             val bancoOperacional: MiBancoOperacional? = MiBancoOperacional.getInstance(this)
 
             if (oldPasswordMatch(password) && newPasswordMatch()) {
-
                 user.setClaveSeguridad(binding.tietNewPassword.text.toString())
 
                 if (bancoOperacional?.changePassword(user) == 0) {
@@ -78,7 +77,6 @@ class ChangePasswordActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
             }
-
         }
 
     }

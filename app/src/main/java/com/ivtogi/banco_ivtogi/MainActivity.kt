@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         showWelcome()
         globalPosition()
+        movements()
         transferActivity()
         changePasswordActivity()
         exit()
@@ -32,6 +33,14 @@ class MainActivity : AppCompatActivity() {
     private fun globalPosition() {
         binding.btnPosition.setOnClickListener {
             val intent = Intent(this, GlobalPositionActivity::class.java)
+            intent.putExtra("user", user)
+            startActivity(intent)
+        }
+    }
+
+    private fun movements() {
+        binding.btnMovement.setOnClickListener {
+            val intent = Intent(this, MovementsActivity::class.java)
             intent.putExtra("user", user)
             startActivity(intent)
         }

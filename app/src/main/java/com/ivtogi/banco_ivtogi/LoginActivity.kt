@@ -18,10 +18,8 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val bancoOperacional: MiBancoOperacional? = MiBancoOperacional.getInstance(this)
-
         binding.btnLogin.setOnClickListener {
-
+            val bancoOperacional: MiBancoOperacional? = MiBancoOperacional.getInstance(this)
             val client = Cliente()
 
             client.setNif(binding.tietUser.text.toString())

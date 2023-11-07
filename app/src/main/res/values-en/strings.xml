@@ -50,4 +50,7 @@
     <!--  GLOBAL POSITION  -->
     <string name="accounts">Accounts:</string>
 
+    <!--  MOVEMENTS  -->
+    <string name="last_movements">Last movements</string>
+    <string name="balance">%1$s Import: %2$s</string>
 </resources>

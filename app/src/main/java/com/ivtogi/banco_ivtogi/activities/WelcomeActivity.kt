@@ -1,4 +1,4 @@
-package com.ivtogi.banco_ivtogi
+package com.ivtogi.banco_ivtogi.activities
 
 import android.content.Intent
 import android.os.Bundle

@@ -1,10 +1,11 @@
-package com.ivtogi.banco_ivtogi
+package com.ivtogi.banco_ivtogi.activities
 
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.ivtogi.banco_ivtogi.R
 import com.ivtogi.banco_ivtogi.databinding.ActivityTransferBinding
 
 class TransferActivity : AppCompatActivity() {

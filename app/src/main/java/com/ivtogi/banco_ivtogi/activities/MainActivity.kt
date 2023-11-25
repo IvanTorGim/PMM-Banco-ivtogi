@@ -1,8 +1,9 @@
-package com.ivtogi.banco_ivtogi
+package com.ivtogi.banco_ivtogi.activities
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.ivtogi.banco_ivtogi.R
 import com.ivtogi.banco_ivtogi.databinding.ActivityMainBinding
 import com.ivtogi.banco_ivtogi.pojo.Cliente
 

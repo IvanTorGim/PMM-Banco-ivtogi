@@ -1,4 +1,4 @@
-package com.ivtogi.banco_ivtogi
+package com.ivtogi.banco_ivtogi.activities
 
 import android.os.Bundle
 import android.view.View
@@ -7,13 +7,11 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.ivtogi.banco_ivtogi.adapter.MovementAdapter
 import com.ivtogi.banco_ivtogi.bd.MiBancoOperacional
 import com.ivtogi.banco_ivtogi.databinding.ActivityMovementsBinding
 import com.ivtogi.banco_ivtogi.pojo.Cliente
 import com.ivtogi.banco_ivtogi.pojo.Cuenta
-import com.ivtogi.banco_ivtogi.pojo.Movimiento
 
 class MovementsActivity : AppCompatActivity() {
 

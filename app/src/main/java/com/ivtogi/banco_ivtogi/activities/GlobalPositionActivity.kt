@@ -1,14 +1,12 @@
-package com.ivtogi.banco_ivtogi
+package com.ivtogi.banco_ivtogi.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ivtogi.banco_ivtogi.adapter.AccountAdapter
 import com.ivtogi.banco_ivtogi.bd.MiBancoOperacional
 import com.ivtogi.banco_ivtogi.databinding.ActivityGlobalPositionBinding
 import com.ivtogi.banco_ivtogi.pojo.Cliente
-import com.ivtogi.banco_ivtogi.pojo.Cuenta
 
 class GlobalPositionActivity : AppCompatActivity() {
 
@@ -28,6 +26,7 @@ class GlobalPositionActivity : AppCompatActivity() {
 
     private fun initAccounts() {
 
+        // TODO PASAR EL CLIENTE AL FRAGMENT Y HACER EL RECYCLERVIEW ALLI
         val bancoOperacional: MiBancoOperacional? = MiBancoOperacional.getInstance(this)
         val client: Cliente = intent.getSerializableExtra("user") as Cliente
         val accounts  = bancoOperacional?.getCuentas(client)

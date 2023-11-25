@@ -3,14 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.GlobalPositionActivity">
+    tools:context=".activities.GlobalPositionDetailsActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/frgGlobalPosition"
-        android:name="com.ivtogi.banco_ivtogi.fragments.AccountsFragment"
+        android:id="@+id/frgGlobalPositionDetails"
+        android:name="com.ivtogi.banco_ivtogi.fragments.AccountsMovementsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_accounts" />
-
+        tools:layout="@layout/fragment_accounts_movements" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

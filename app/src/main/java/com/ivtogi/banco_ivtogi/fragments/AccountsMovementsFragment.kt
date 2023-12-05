@@ -5,56 +5,99 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.ivtogi.banco_ivtogi.R
+import com.ivtogi.banco_ivtogi.adapter.MovementAdapter
+import com.ivtogi.banco_ivtogi.adapter.OnClickMovementListener
+import com.ivtogi.banco_ivtogi.bd.MiBancoOperacional
+import com.ivtogi.banco_ivtogi.databinding.DialogMovementBinding
+import com.ivtogi.banco_ivtogi.databinding.FragmentAccountsMovementsBinding
+import com.ivtogi.banco_ivtogi.pojo.Cuenta
+import com.ivtogi.banco_ivtogi.pojo.Movimiento
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_ACCOUNT = "account"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AccountsMovementsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class AccountsMovementsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class AccountsMovementsFragment : Fragment(), OnClickMovementListener {
+    private lateinit var binding: FragmentAccountsMovementsBinding
+
+    private var account: Cuenta? = null
+
+    private lateinit var linearLayoutManager: LinearLayoutManager
+    private lateinit var movementAdapter: MovementAdapter
+    private lateinit var dividerItemDecoration: DividerItemDecoration
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            account = it.getSerializable(ARG_ACCOUNT) as Cuenta
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_accounts_movements, container, false)
+    ): View {
+        binding = FragmentAccountsMovementsBinding.inflate(inflater, container, false)
+
+
+        val bancoOperacional = MiBancoOperacional.getInstance(context)
+        val movements = bancoOperacional?.getMovimientos(account) as ArrayList<*>
+
+        linearLayoutManager = LinearLayoutManager(context)
+        movementAdapter = MovementAdapter(movements, this)
+        dividerItemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+
+        binding.recycler.apply {
+            layoutManager = linearLayoutManager
+            adapter = movementAdapter
+            addItemDecoration(dividerItemDecoration)
+        }
+
+        return binding.root
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AccountsMovementsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(account: Cuenta) =
             AccountsMovementsFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putSerializable(ARG_ACCOUNT, account)
                 }
             }
     }
+
+    override fun onClick(movement: Movimiento) {
+        val dialogoBinding = DialogMovementBinding.inflate(layoutInflater)
+        val context = dialogoBinding.tvDialog.context
+
+        val originAccount = "${movement.getCuentaOrigen()?.getBanco()}" +
+                "-${movement.getCuentaOrigen()?.getSucursal()}" +
+                "-${movement.getCuentaOrigen()?.getDc()}" +
+                "-${movement.getCuentaOrigen()?.getNumeroCuenta()}"
+
+        val destinationAccount = "${movement.getCuentaDestino()?.getBanco()}" +
+                "-${movement.getCuentaDestino()?.getSucursal()}" +
+                "-${movement.getCuentaDestino()?.getDc()}" +
+                "-${movement.getCuentaDestino()?.getNumeroCuenta()}"
+
+        dialogoBinding.tvDialog.text = getString(
+            R.string.movement_dialog,
+            movement.getId().toString(),
+            movement.getTipo().toString(),
+            movement.getFechaOperacion(),
+            movement.getDescripcion(),
+            movement.getImporte().toString(),
+            originAccount,
+            destinationAccount
+        )
+
+
+        MaterialAlertDialogBuilder(context)
+            .setView(dialogoBinding.root)
+            .show()
+    }
+
 }

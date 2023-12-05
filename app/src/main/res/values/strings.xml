@@ -54,4 +54,8 @@
     <string name="last_movements">Últimos movimientos</string>
     <string name="balance">%1$s Importe: %2$s</string>
 
+    <!-- GLOBAL POSITION DETAILS -->
+    <string name="movement_dialog">Id: %1$s\nTipo: %2$s\nFecha Operación: %3$s\nDescripción: %4$s\nImporte: %5$s\nCuenta Origen: %6$s\nCuenta Destino: %7$s</string>
+    <string name="movement_dialog_title">Detalles movimiento</string>
+
 </resources>

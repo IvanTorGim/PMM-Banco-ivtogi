@@ -8,12 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ivtogi.banco_ivtogi.adapter.MovementAdapter
+import com.ivtogi.banco_ivtogi.adapter.OnClickMovementListener
 import com.ivtogi.banco_ivtogi.bd.MiBancoOperacional
 import com.ivtogi.banco_ivtogi.databinding.ActivityMovementsBinding
 import com.ivtogi.banco_ivtogi.pojo.Cliente
 import com.ivtogi.banco_ivtogi.pojo.Cuenta
+import com.ivtogi.banco_ivtogi.pojo.Movimiento
 
-class MovementsActivity : AppCompatActivity() {
+class MovementsActivity : AppCompatActivity(), OnClickMovementListener {
 
     private lateinit var binding: ActivityMovementsBinding
 
@@ -65,7 +67,7 @@ class MovementsActivity : AppCompatActivity() {
     }
 
     private fun initMovements(movements: ArrayList<*>) {
-        movementAdapter = MovementAdapter(movements)
+        movementAdapter = MovementAdapter(movements, this)
         linearLayoutManager = LinearLayoutManager(this)
         itemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
 
@@ -76,4 +78,9 @@ class MovementsActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onClick(movement: Movimiento) {
+        // Para que no de error
+    }
+
 }

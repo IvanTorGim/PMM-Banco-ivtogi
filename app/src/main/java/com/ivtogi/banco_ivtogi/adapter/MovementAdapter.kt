@@ -11,7 +11,10 @@ import com.ivtogi.banco_ivtogi.databinding.ItemMovementBinding
 import com.ivtogi.banco_ivtogi.pojo.Movimiento
 import java.text.DateFormat
 
-class MovementAdapter(private val movements: ArrayList<*>) :
+class MovementAdapter(
+    private val movements: ArrayList<*>,
+    private val listener: OnClickMovementListener
+) :
     RecyclerView.Adapter<MovementAdapter.ViewHolder>() {
 
     private lateinit var context: Context
@@ -40,9 +43,16 @@ class MovementAdapter(private val movements: ArrayList<*>) :
             if (import > 0) tvBalance.setTextColor(Color.GREEN)
             else tvBalance.setTextColor(Color.RED)
         }
+        holder.setListener(movement)
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ItemMovementBinding.bind(view)
+
+        fun setListener(movement: Movimiento) {
+            binding.root.setOnClickListener {
+                listener.onClick(movement)
+            }
+        }
     }
 }

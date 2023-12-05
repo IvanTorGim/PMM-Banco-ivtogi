@@ -9,7 +9,10 @@ import com.ivtogi.banco_ivtogi.R
 import com.ivtogi.banco_ivtogi.databinding.ItemAccountBinding
 import com.ivtogi.banco_ivtogi.pojo.Cuenta
 
-class AccountAdapter(private val accounts: ArrayList<*>) :
+class AccountAdapter(
+    private val accounts: ArrayList<*>,
+    private val listener: OnClickAccountListener
+) :
     RecyclerView.Adapter<AccountAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,9 +33,18 @@ class AccountAdapter(private val accounts: ArrayList<*>) :
             if (balance != null && balance > 0) binding.tvBalance.setTextColor(Color.GREEN)
             else binding.tvBalance.setTextColor(Color.RED)
         }
+        holder.setListener(account)
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ItemAccountBinding.bind(view)
+
+        fun setListener(account: Cuenta) {
+            binding.root.setOnClickListener {
+                listener.onclick(account)
+            }
+        }
+
+
     }
 }

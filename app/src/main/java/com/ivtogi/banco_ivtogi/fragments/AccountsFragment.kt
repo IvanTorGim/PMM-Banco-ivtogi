@@ -5,56 +5,73 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.ivtogi.banco_ivtogi.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.ivtogi.banco_ivtogi.adapter.AccountAdapter
+import com.ivtogi.banco_ivtogi.adapter.OnClickAccountListener
+import com.ivtogi.banco_ivtogi.bd.MiBancoOperacional
+import com.ivtogi.banco_ivtogi.databinding.FragmentAccountsBinding
+import com.ivtogi.banco_ivtogi.pojo.Cliente
+import com.ivtogi.banco_ivtogi.pojo.Cuenta
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_CLIENTE = "cliente"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AccountsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class AccountsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+class AccountsFragment : Fragment(), OnClickAccountListener {
+
+    private var client: Cliente? = null
+
+    private lateinit var binding: FragmentAccountsBinding
+
+    private lateinit var accountAdapter: AccountAdapter
+    private lateinit var linearLayoutManager: LinearLayoutManager
+
+    private lateinit var listener: AccountListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            client = it.getSerializable(ARG_CLIENTE) as Cliente
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_accounts, container, false)
+    ): View {
+        binding = FragmentAccountsBinding.inflate(inflater, container, false)
+
+        val bancoOperacional: MiBancoOperacional? = MiBancoOperacional.getInstance(context)
+        val accounts: ArrayList<*>? = bancoOperacional?.getCuentas(client)
+
+        if (accounts != null)
+            accountAdapter = AccountAdapter(accounts, this)
+
+        linearLayoutManager = LinearLayoutManager(context)
+
+        binding.recycler.apply {
+            adapter = accountAdapter
+            layoutManager = linearLayoutManager
+        }
+        return binding.root
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AccountsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(cliente: Cliente) =
             AccountsFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putSerializable(ARG_CLIENTE, cliente)
                 }
             }
+    }
+
+    //Recogemos el listener del activity
+    fun setAccountListener(listener: AccountListener) {
+        this.listener = listener
+    }
+
+    override fun onclick(account: Cuenta) {
+        if (listener != null)
+            listener.onAccountSelected(account)
     }
 }

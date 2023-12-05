@@ -7,7 +7,6 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frgGlobalPositionDetails"
-        android:name="com.ivtogi.banco_ivtogi.fragments.AccountsMovementsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_accounts_movements" />

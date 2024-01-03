@@ -2,12 +2,15 @@ package com.ivtogi.banco_ivtogi.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationView
 import com.ivtogi.banco_ivtogi.R
 import com.ivtogi.banco_ivtogi.databinding.ActivityMainBinding
 import com.ivtogi.banco_ivtogi.pojo.Cliente
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var user: Cliente
@@ -19,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         user = intent.getSerializableExtra("user") as Cliente
 
+
+        navigationDrawer()
         showWelcome()
         globalPosition()
         movements()
@@ -26,6 +31,22 @@ class MainActivity : AppCompatActivity() {
         changePasswordActivity()
         exit()
     }
+
+    private fun navigationDrawer() {
+        val drawerLayout = binding.drawerLayout
+
+        val appBar = binding.bottomAppBar
+
+        val navigationView = binding.navView
+        navigationView.setNavigationItemSelectedListener(this)
+
+        val toggle =
+            ActionBarDrawerToggle(this, drawerLayout, appBar, R.string.open_nav, R.string.close_nav)
+
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+    }
+
 
     private fun showWelcome() {
         binding.tvUser.text = getString(R.string.welcome, user.getNombre().toString())
@@ -64,6 +85,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun exit() {
         binding.btnExit.setOnClickListener { finish() }
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        TODO("Falta hacer que navegue a las activitys cuando se pulse en cada nombre")
     }
 
 }

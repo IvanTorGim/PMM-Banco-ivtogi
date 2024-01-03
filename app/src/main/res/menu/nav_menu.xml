@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/nav_home" />
+
+        <item
+            android:id="@+id/nav_position"
+            android:icon="@drawable/ic_global"
+            android:title="@string/global_position" />
+
+        <item
+            android:id="@+id/nav_movements"
+            android:icon="@drawable/ic_movement"
+            android:title="@string/movements" />
+
+        <item
+            android:id="@+id/nav_transfers"
+            android:icon="@drawable/ic_transfer"
+            android:title="@string/transfers" />
+
+        <item
+            android:id="@+id/nav_password"
+            android:icon="@drawable/ic_password"
+            android:title="@string/change_password" />
+
+        <item
+            android:id="@+id/nav_promotions"
+            android:icon="@drawable/ic_promotion"
+            android:title="@string/promotions" />
+
+        <item
+            android:id="@+id/nav_cashiers"
+            android:icon="@drawable/ic_cashier"
+            android:title="@string/cashiers" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings" />
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="@string/nav_logout" />
+        </menu>
+    </item>
+
+</menu>

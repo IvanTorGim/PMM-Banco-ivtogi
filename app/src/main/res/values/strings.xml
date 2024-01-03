@@ -58,4 +58,11 @@
     <string name="movement_dialog">Id: %1$s\nTipo: %2$s\nFecha Operación: %3$s\nDescripción: %4$s\nImporte: %5$s\nCuenta Origen: %6$s\nCuenta Destino: %7$s</string>
     <string name="movement_dialog_title">Detalles movimiento</string>
 
+    <!-- NAVIGATION DRAWER -->
+    <string name="open_nav">Open navigation Drawer</string>
+    <string name="settings">Configuration</string>
+    <string name="nav_logout">Logout</string>
+    <string name="nav_home">Home</string>
+    <string name="close_nav">Close Navigation Drawer\n</string>
+
 </resources>

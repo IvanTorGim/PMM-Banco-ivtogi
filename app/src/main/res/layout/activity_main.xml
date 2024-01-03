@@ -1,142 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    android:fitsSystemWindows="true"
+    tools:context=".activities.MainActivity"
+    tools:openDrawer="start">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardUser"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_default">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardUser"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp">
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_default">
 
-            <ImageView
-                android:id="@+id/ivUser"
-                android:layout_width="@dimen/img_user"
-                android:layout_height="@dimen/img_user"
-                android:contentDescription="@string/ivUser"
-                android:src="@drawable/ic_user"
-                app:layout_constraintBaseline_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
 
-            <TextView
-                android:id="@+id/tvUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ivUser"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Bienvenido/a \n29234343K" />
+                <ImageView
+                    android:id="@+id/ivUser"
+                    android:layout_width="@dimen/img_user"
+                    android:layout_height="@dimen/img_user"
+                    android:contentDescription="@string/ivUser"
+                    android:src="@drawable/ic_user"
+                    app:layout_constraintBaseline_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivUser"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Bienvenido/a \n29234343K" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/margin_default">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_default">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPosition"
-                style="@style/mainBtn"
-                android:text="@string/global_position"
-                app:icon="@drawable/ic_global"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnMovement"
-                style="@style/mainBtn"
-                android:text="@string/movements"
-                app:icon="@drawable/ic_movement"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnPosition" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPosition"
+                    style="@style/mainBtn"
+                    android:text="@string/global_position"
+                    app:icon="@drawable/ic_global"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnTransfers"
-                style="@style/mainBtn"
-                android:text="@string/transfers"
-                app:icon="@drawable/ic_transfer"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnMovement" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMovement"
+                    style="@style/mainBtn"
+                    android:text="@string/movements"
+                    app:icon="@drawable/ic_movement"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnPosition" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPassword"
-                style="@style/mainBtn"
-                android:text="@string/change_password"
-                app:icon="@drawable/ic_password"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnTransfers" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTransfers"
+                    style="@style/mainBtn"
+                    android:text="@string/transfers"
+                    app:icon="@drawable/ic_transfer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnMovement" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPromotions"
-                style="@style/mainBtn"
-                android:text="@string/promotions"
-                app:icon="@drawable/ic_promotion"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnPassword" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPassword"
+                    style="@style/mainBtn"
+                    android:text="@string/change_password"
+                    app:icon="@drawable/ic_password"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnTransfers" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCashiers"
-                style="@style/mainBtn"
-                android:text="@string/cashiers"
-                app:icon="@drawable/ic_cashier"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnPromotions" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPromotions"
+                    style="@style/mainBtn"
+                    android:text="@string/promotions"
+                    app:icon="@drawable/ic_promotion"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnPassword" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnExit"
-                style="@style/mainBtn"
-                android:text="@string/exit"
-                app:icon="@drawable/ic_exit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnCashiers" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCashiers"
+                    style="@style/mainBtn"
+                    android:text="@string/cashiers"
+                    app:icon="@drawable/ic_cashier"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnPromotions" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnExit"
+                    style="@style/mainBtn"
+                    android:text="@string/exit"
+                    app:icon="@drawable/ic_exit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnCashiers" />
 
-    </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/accent"
+            android:contentDescription="@string/bank_button"
+            android:src="@drawable/ic_bank"
+            app:layout_anchor="@id/bottomAppBar" />
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/primary"
+            app:navigationIcon="@drawable/ic_menu" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/accent"
-        android:contentDescription="@string/bank_button"
-        android:src="@drawable/ic_bank"
-        app:layout_anchor="@id/bottomAppBar" />
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:itemIconTint="@color/primary"
+        app:itemTextColor="@color/primary"
+        app:menu="@menu/nav_menu" />
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:backgroundTint="@color/primary"
-        app:navigationIcon="@drawable/ic_menu" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

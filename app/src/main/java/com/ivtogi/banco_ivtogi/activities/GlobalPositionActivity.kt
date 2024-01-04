@@ -23,16 +23,13 @@ class GlobalPositionActivity : AppCompatActivity(), AccountListener {
         setContentView(binding.root)
 
         val client: Cliente = intent.getSerializableExtra("user") as Cliente
-        // Para que no duplique el fragment al girar la pantalla, buscamos si hay alguno activo
-        val activeFragment =
-            supportFragmentManager.findFragmentById(binding.frgGlobalPosition.id)
 
         fragmentManager = supportFragmentManager
         accountsFragment = AccountsFragment.newInstance(client)
 
 
-        // Si no hay fragment activo lo añadimos y si hay lo remplazamos
-        if (activeFragment == null) {
+        // Si no hay instancia del activity añadimos el fragment y si hay lo remplazamos
+        if (savedInstanceState == null) {
             fragmentManager.beginTransaction().add(
                 binding.frgGlobalPosition.id,
                 accountsFragment,

@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.ivtogi.banco_ivtogi.R
 import com.ivtogi.banco_ivtogi.databinding.ActivityMainBinding
@@ -14,6 +16,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var user: Cliente
+
+    private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +37,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun navigationDrawer() {
-        val drawerLayout = binding.drawerLayout
+        drawerLayout = binding.drawerLayout
 
         val appBar = binding.bottomAppBar
 
@@ -84,11 +88,59 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun exit() {
-        binding.btnExit.setOnClickListener { finish() }
+        binding.btnExit.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        TODO("Falta hacer que navegue a las activitys cuando se pulse en cada nombre")
+        when (item.itemId) {
+            R.id.nav_home -> {
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("user", user)
+                startActivity(intent)
+            }
+
+            R.id.nav_position -> {
+                val intent = Intent(this, GlobalPositionActivity::class.java)
+                intent.putExtra("user", user)
+                startActivity(intent)
+            }
+
+            R.id.nav_movements -> {
+                val intent = Intent(this, MovementsActivity::class.java)
+                intent.putExtra("user", user)
+                startActivity(intent)
+            }
+
+            R.id.nav_transfers -> {
+                val intent = Intent(this, TransferActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.nav_password -> {
+                val intent = Intent(this, ChangePasswordActivity::class.java)
+                intent.putExtra("user", user)
+                startActivity(intent)
+            }
+
+            R.id.nav_logout -> {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        // Para cerrar el menu cada vez que se pulse una opción
+        drawerLayout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (drawerLayout.isDrawerOpen(GravityCompat.START))
+            drawerLayout.closeDrawer(GravityCompat.START)
+        else
+            onBackPressedDispatcher.onBackPressed()
     }
 
 }

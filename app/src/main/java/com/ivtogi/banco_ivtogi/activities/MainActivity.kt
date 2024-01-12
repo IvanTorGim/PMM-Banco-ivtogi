@@ -125,6 +125,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
             }
 
+            R.id.nav_settings -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+            }
+
             R.id.nav_logout -> {
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)

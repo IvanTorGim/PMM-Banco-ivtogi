@@ -1,0 +1,32 @@
+<resources>
+    <!-- Languaje -->
+    <string-array name="language_entries">
+        <item>@string/spanish</item>
+        <item>@string/english</item>
+        <item>@string/french</item>
+        <item>@string/italian</item>
+        <item>@string/german</item>
+    </string-array>
+
+    <string-array name="language_values">
+        <item>ESP</item>
+        <item>ING</item>
+        <item>FRA</item>
+        <item>ITA</item>
+        <item>ALE</item>
+    </string-array>
+
+    <!-- Data -->
+    <string-array name="data_entries">
+        <item>@string/local</item>
+        <item>@string/cloud</item>
+
+    </string-array>
+
+    <string-array name="data_values">
+        <item>LOCAL</item>
+        <item>CLOUD</item>
+
+    </string-array>
+
+</resources>

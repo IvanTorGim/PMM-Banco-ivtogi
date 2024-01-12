@@ -65,4 +65,34 @@
     <string name="nav_home">Home</string>
     <string name="close_nav">Close Navigation Drawer\n</string>
 
+    <!-- SETTINGS -->
+    <string name="title_activity_settings">Ajustes</string>
+    <string name="media">Multimedia</string>
+    <string name="music">Musica</string>
+    <string name="music_on">Escuchar la música mientras se ejecuta la aplicación</string>
+    <string name="music_off">No escuchar la música mientras se ejecuta la aplicación</string>
+
+    <string name="welcome_video">Video de bienvenida</string>
+    <string name="welcome_video_on">Reproducir un video al iniciar la aplicanción</string>
+    <string name="welcome_video_off">No reproducir un video al iniciar la aplicanción</string>
+
+    <string name="language">Lenguaje</string>
+    <string name="app_language">Idioma de la aplicación</string>
+    <string name="language_dialog">Elige un idioma</string>
+    <string name="spanish">Español</string>
+    <string name="english">Ingles</string>
+    <string name="french">Frances</string>
+    <string name="italian">Italiano</string>
+    <string name="german">Alemán</string>
+
+    <string name="data">Data</string>
+    <string name="data_dialog">Elige donde guardar los datos</string>
+    <string name="data_origin">Origen de los datos</string>
+    <string name="local">Datos locales</string>
+    <string name="cloud">Servicio web</string>
+
+    <string name="notifications">Notificaciones</string>
+    <string name="active_notifications">Habilitar notificaciones</string>
+    <string name="volume">Volumen</string>
+
 </resources>

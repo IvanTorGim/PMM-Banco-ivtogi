@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
+import com.ivtogi.banco_ivtogi.R
 import com.ivtogi.banco_ivtogi.databinding.ActivityGlobalPositionBinding
 import com.ivtogi.banco_ivtogi.fragments.AccountListener
 import com.ivtogi.banco_ivtogi.fragments.AccountsFragment
@@ -57,9 +58,9 @@ class GlobalPositionActivity : AppCompatActivity(), AccountListener {
         } != null
 
         if (tablet) {
-            val accountsMovementsFragment = AccountsMovementsFragment.newInstance(account)
+            val accountsMovementsFragment = AccountsMovementsFragment.newInstance(account, -1)
             supportFragmentManager.beginTransaction().replace(
-                binding.frgGlobalPositionDetails!!.id,
+                R.id.frgGlobalPositionDetails,
                 accountsMovementsFragment,
                 AccountsMovementsFragment::class.java.name
             ).commit()

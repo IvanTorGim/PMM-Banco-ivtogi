@@ -18,11 +18,13 @@ import com.ivtogi.banco_ivtogi.pojo.Cuenta
 import com.ivtogi.banco_ivtogi.pojo.Movimiento
 
 private const val ARG_ACCOUNT = "account"
+private const val ARG_TYPE = "type"
 
 class AccountsMovementsFragment : Fragment(), OnClickMovementListener {
     private lateinit var binding: FragmentAccountsMovementsBinding
 
     private var account: Cuenta? = null
+    private var type: Int = -1
 
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var movementAdapter: MovementAdapter
@@ -33,6 +35,7 @@ class AccountsMovementsFragment : Fragment(), OnClickMovementListener {
         super.onCreate(savedInstanceState)
         arguments?.let {
             account = it.getSerializable(ARG_ACCOUNT) as Cuenta
+            type = it.getInt(ARG_TYPE)
         }
     }
 
@@ -44,7 +47,10 @@ class AccountsMovementsFragment : Fragment(), OnClickMovementListener {
 
 
         val bancoOperacional = MiBancoOperacional.getInstance(context)
-        val movements = bancoOperacional?.getMovimientos(account) as ArrayList<*>
+
+        //Dependiendo del tipo se hace una consulta o otra para obtener los movimientos
+        val movements = if (type < 0) bancoOperacional?.getMovimientos(account) as ArrayList<*>
+        else bancoOperacional?.getMovimientosTipo(account, type) as ArrayList<*>
 
         linearLayoutManager = LinearLayoutManager(context)
         movementAdapter = MovementAdapter(movements, this)
@@ -61,10 +67,11 @@ class AccountsMovementsFragment : Fragment(), OnClickMovementListener {
 
     companion object {
         @JvmStatic
-        fun newInstance(account: Cuenta) =
+        fun newInstance(account: Cuenta, type: Int) =
             AccountsMovementsFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable(ARG_ACCOUNT, account)
+                    putInt(ARG_TYPE, type)
                 }
             }
     }

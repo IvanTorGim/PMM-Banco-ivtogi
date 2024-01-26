@@ -96,4 +96,13 @@
     <string name="volume">Volume</string>
     <string name="active_notifications">Enable notifications</string>
 
+    <!-- ATM -->
+    <string name="createAtm">Add ATM</string>
+    <string name="address">Address</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="btnSave">Save</string>
+    <string name="btnUpdate">Update</string>
+    <string name="btnDelete">Delete</string>
+
 </resources>

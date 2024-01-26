@@ -94,7 +94,14 @@
     <string name="notifications">Notificaciones</string>
     <string name="active_notifications">Habilitar notificaciones</string>
     <string name="volume">Volumen</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- ATM -->
+    <string name="createAtm">Crear Cajero</string>
+    <string name="address">Dirección</string>
+    <string name="latitude">Latitud</string>
+    <string name="longitude">Longitud</string>
+    <string name="btnSave">Guardar</string>
+    <string name="btnUpdate">Actualizar</string>
+    <string name="btnDelete">Eliminar</string>
 
 </resources>

@@ -17,7 +17,7 @@ interface CajeroDAO {
     fun insertAll(cajeroEntityList: List<CajeroEntity>)
 
     @Insert
-    fun addCajero(cajeroEntity: CajeroEntity)
+    fun addCajero(cajeroEntity: CajeroEntity): Long
 
     @Update
     fun updateCajero(cajeroEntity: CajeroEntity)

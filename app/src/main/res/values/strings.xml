@@ -97,6 +97,7 @@
 
     <!-- ATM -->
     <string name="createAtm">Crear Cajero</string>
+    <string name="modifyAtm">Modificar Cajero</string>
     <string name="address">Dirección</string>
     <string name="latitude">Latitud</string>
     <string name="longitude">Longitud</string>

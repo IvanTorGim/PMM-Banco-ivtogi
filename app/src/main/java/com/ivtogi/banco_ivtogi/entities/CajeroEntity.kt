@@ -2,6 +2,7 @@ package com.ivtogi.banco_ivtogi.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "cajeros")
 data class CajeroEntity(
@@ -10,4 +11,4 @@ data class CajeroEntity(
     var latitud: Double,
     var longitud: Double,
     var zoom: String
-)
+) : Serializable

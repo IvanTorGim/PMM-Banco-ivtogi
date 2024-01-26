@@ -9,7 +9,10 @@ import com.ivtogi.banco_ivtogi.R
 import com.ivtogi.banco_ivtogi.databinding.ItemAtmBinding
 import com.ivtogi.banco_ivtogi.entities.CajeroEntity
 
-class AtmAdapter(private val atmList: MutableList<CajeroEntity>) :
+class AtmAdapter(
+    private val cajeroEntityList: MutableList<CajeroEntity>,
+    private val listener: OnClickAtmListener
+) :
     RecyclerView.Adapter<AtmAdapter.ViewHolder>() {
 
     private lateinit var context: Context
@@ -20,17 +23,26 @@ class AtmAdapter(private val atmList: MutableList<CajeroEntity>) :
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int = atmList.size
+    override fun getItemCount(): Int = cajeroEntityList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val atm = atmList[position]
+        val cajero = cajeroEntityList[position]
         holder.binding.apply {
-            tvName.text = "ATM ${atm.id}"
-            tvAddress.text = atm.direccion
+            tvName.text = "ATM ${cajero.id}"
+            tvAddress.text = cajero.direccion
         }
+        holder.setListener(cajero)
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ItemAtmBinding.bind(view)
+
+        fun setListener(cajeroEntity: CajeroEntity) {
+            binding.root.setOnClickListener {
+                listener.onClick(cajeroEntity)
+            }
+        }
     }
+
+
 }

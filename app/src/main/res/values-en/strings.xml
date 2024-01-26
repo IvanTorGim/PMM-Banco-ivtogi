@@ -98,6 +98,7 @@
 
     <!-- ATM -->
     <string name="createAtm">Add ATM</string>
+    <string name="modifyAtm">Modify ATM</string>
     <string name="address">Address</string>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>

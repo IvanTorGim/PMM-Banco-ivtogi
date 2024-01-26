@@ -4,56 +4,94 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.ivtogi.banco_ivtogi.R
+import com.ivtogi.banco_ivtogi.activities.AtmActivity
+import com.ivtogi.banco_ivtogi.bd.BancoApplication
+import com.ivtogi.banco_ivtogi.databinding.FragmentAtmManagementBinding
+import com.ivtogi.banco_ivtogi.entities.CajeroEntity
+import java.util.concurrent.LinkedBlockingQueue
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_CAJERO_ENTITY = "cajeroEntity"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AtmManagementFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class AtmManagementFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var cajeroEntity: CajeroEntity? = null
+    private lateinit var binding: FragmentAtmManagementBinding
+    private lateinit var atmActivity: AtmActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            cajeroEntity = it.getSerializable(ARG_CAJERO_ENTITY) as CajeroEntity
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_atm_management, container, false)
+    ): View {
+        binding = FragmentAtmManagementBinding.inflate(inflater, container, false)
+        atmActivity = activity as AtmActivity
+
+        if (cajeroEntity == null) {
+            binding.apply {
+                tvTitle.text = getString(R.string.createAtm)
+                btnSave.isVisible = true
+                btnCancel.isVisible = true
+                btnUpdate.isVisible = false
+                btnDelete.isVisible = false
+            }
+        } else {
+            binding.apply {
+                tvTitle.text = getString(R.string.modifyAtm)
+                btnSave.isVisible = false
+                btnCancel.isVisible = false
+                btnUpdate.isVisible = true
+                btnDelete.isVisible = true
+                tilAddress.editText?.setText(cajeroEntity!!.direccion)
+                tilLatitude.editText?.setText(cajeroEntity!!.latitud.toString())
+                tilLongitude.editText?.setText(cajeroEntity!!.longitud.toString())
+            }
+        }
+
+        binding.btnSave.setOnClickListener {
+            val cajero = CajeroEntity(
+                direccion = binding.tilAddress.editText?.text.toString(),
+                latitud = binding.tilLatitude.editText?.text.toString().toDouble(),
+                longitud = binding.tilLongitude.editText?.text.toString().toDouble(),
+                zoom = ""
+            )
+
+            val queue = LinkedBlockingQueue<Long>()
+            Thread {
+                val id = BancoApplication.database.cajeroDao().addCajero(cajero)
+                queue.add(id)
+            }.start()
+
+            atmActivity.supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.frgContainer, AtmFragment())
+                .commit()
+        }
+
+        binding.btnCancel.setOnClickListener {
+            atmActivity.supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.frgContainer, AtmFragment())
+                .commit()
+        }
+
+        return binding.root
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AtmManagementFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(cajeroEntity: CajeroEntity) =
             AtmManagementFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putSerializable(ARG_CAJERO_ENTITY, cajeroEntity)
                 }
             }
     }

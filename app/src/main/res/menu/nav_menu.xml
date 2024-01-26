@@ -33,9 +33,9 @@
             android:title="@string/promotions" />
 
         <item
-            android:id="@+id/nav_cashiers"
-            android:icon="@drawable/ic_cashier"
-            android:title="@string/cashiers" />
+            android:id="@+id/nav_atm"
+            android:icon="@drawable/ic_atm"
+            android:title="@string/atm" />
 
         <item
             android:id="@+id/nav_settings"

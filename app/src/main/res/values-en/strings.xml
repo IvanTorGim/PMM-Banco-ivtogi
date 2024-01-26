@@ -22,7 +22,7 @@
     <string name="transfers">Transfers</string>
     <string name="change_password">Change Password</string>
     <string name="promotions">Promotions</string>
-    <string name="cashiers">Cashier</string>
+    <string name="atm">ATM</string>
     <string name="ivUser">Profile picture</string>
 
     <!--  CHANGE PASSWORD  -->

@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         movements()
         transferActivity()
         changePasswordActivity()
+        atmActivity()
         exit()
     }
 
@@ -87,6 +88,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    private fun atmActivity() {
+        binding.btnAtm.setOnClickListener {
+            val intent = Intent(this, AtmActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun exit() {
         binding.btnExit.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
@@ -127,6 +135,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             R.id.nav_settings -> {
                 val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.nav_atm -> {
+                val intent = Intent(this, AtmActivity::class.java)
                 startActivity(intent)
             }
 

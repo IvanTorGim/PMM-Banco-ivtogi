@@ -22,7 +22,7 @@
     <string name="transfers">Transferencias</string>
     <string name="change_password">Cambiar contraseña</string>
     <string name="promotions">Promociones</string>
-    <string name="cashiers">Cajeros</string>
+    <string name="atm">Cajeros</string>
     <string name="ivUser">Imagen de perfil</string>
 
     <!--  CHANGE PASSWORD  -->

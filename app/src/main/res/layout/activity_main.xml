@@ -109,10 +109,10 @@
                     app:layout_constraintTop_toBottomOf="@+id/btnPassword" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnCashiers"
+                    android:id="@+id/btnAtm"
                     style="@style/mainBtn"
-                    android:text="@string/cashiers"
-                    app:icon="@drawable/ic_cashier"
+                    android:text="@string/atm"
+                    app:icon="@drawable/ic_atm"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnPromotions" />
@@ -124,7 +124,7 @@
                     app:icon="@drawable/ic_exit"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnCashiers" />
+                    app:layout_constraintTop_toBottomOf="@+id/btnAtm" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

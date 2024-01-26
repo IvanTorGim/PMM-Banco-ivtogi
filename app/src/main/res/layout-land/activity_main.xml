@@ -132,10 +132,10 @@
                                 app:icon="@drawable/ic_promotion" />
 
                             <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btnCashiers"
+                                android:id="@+id/btnAtm"
                                 style="@style/mainBtn"
-                                android:text="@string/cashiers"
-                                app:icon="@drawable/ic_cashier" />
+                                android:text="@string/atm"
+                                app:icon="@drawable/ic_atm" />
 
                         </TableRow>
 

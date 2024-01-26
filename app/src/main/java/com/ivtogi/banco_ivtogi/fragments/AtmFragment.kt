@@ -5,55 +5,75 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.ivtogi.banco_ivtogi.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.ivtogi.banco_ivtogi.adapter.AtmAdapter
+import com.ivtogi.banco_ivtogi.databinding.FragmentAtmBinding
+import com.ivtogi.banco_ivtogi.entities.CajeroEntity
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AtmFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AtmFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var binding: FragmentAtmBinding
+
+    private lateinit var atmAdapter: AtmAdapter
+    private lateinit var linearLayoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        binding = FragmentAtmBinding.inflate(inflater, container, false)
+
+        val cajerosEntityLists: MutableList<CajeroEntity> = mutableListOf(
+            CajeroEntity(
+                1, "Carrer del Clariano, 1, 46021 Valencia, Valencia, España",
+                39.47600769999999, -0.3524475000000393, ""
+            ),
+            CajeroEntity(
+                2, "Avinguda del Cardenal Benlloch, 65, 46021 València, Valencia, España",
+                39.4710366, -0.3547525000000178, ""
+            ),
+            CajeroEntity(
+                3, "Av. del Port, 237, 46011 València, Valencia, España",
+                39.46161999999999, -0.3376299999999901, ""
+            ),
+            CajeroEntity(
+                4, "Carrer del Batxiller, 6, 46010 València, Valencia, España",
+                39.4826729, -0.3639118999999482, ""
+            ),
+            CajeroEntity(
+                5, "Av. del Regne de València, 2, 46005 València, Valencia, España",
+                39.4647669, -0.3732760000000326, ""
+            )
+        )
+
+        atmAdapter = AtmAdapter(cajerosEntityLists)
+        linearLayoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
+
+        binding.recycler.apply {
+            adapter = atmAdapter
+            layoutManager = linearLayoutManager
+        }
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_atm, container, false)
+        return binding.root
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AtmFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param1: String) =
             AtmFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
                 }
             }
     }

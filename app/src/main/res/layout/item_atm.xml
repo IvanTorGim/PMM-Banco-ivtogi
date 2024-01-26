@@ -33,11 +33,12 @@
 
         <TextView
             android:id="@+id/tvAddress"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_default"
             app:layout_constraintStart_toStartOf="@+id/tvName"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvName"
-            android:maxLines="2"
             android:text="Carrer del Clariano, 1, 46021 Valencia, Valencia, España" />
 
 

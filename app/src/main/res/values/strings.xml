@@ -104,5 +104,9 @@
     <string name="btnSave">Guardar</string>
     <string name="btnUpdate">Actualizar</string>
     <string name="btnDelete">Eliminar</string>
+    <string name="createdSuccessfully">Cajero creado correctamente</string>
+    <string name="deletedSuccessfully">Cajero eliminado correctamente</string>
+    <string name="updatedSuccessfully">Cajero actualizado correctamente</string>
+    <string name="numberException">Hay algun campo no válido</string>
 
 </resources>

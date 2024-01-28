@@ -105,5 +105,9 @@
     <string name="btnSave">Save</string>
     <string name="btnUpdate">Update</string>
     <string name="btnDelete">Delete</string>
+    <string name="createdSuccessfully">ATM created successfully</string>
+    <string name="deletedSuccessfully">ATM deleted successfully</string>
+    <string name="updatedSuccessfully">ATM updated successfully</string>
+
 
 </resources>

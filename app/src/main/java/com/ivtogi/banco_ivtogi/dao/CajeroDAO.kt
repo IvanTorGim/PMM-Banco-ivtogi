@@ -14,14 +14,15 @@ interface CajeroDAO {
     fun getAllCajeros(): MutableList<CajeroEntity>
 
     @Insert
+
     fun insertAll(cajeroEntityList: List<CajeroEntity>)
 
     @Insert
     fun addCajero(cajeroEntity: CajeroEntity): Long
 
     @Update
-    fun updateCajero(cajeroEntity: CajeroEntity)
+    fun updateCajero(cajeroEntity: CajeroEntity): Int
 
     @Delete
-    fun deleteCajero(cajeroEntity: CajeroEntity)
+    fun deleteCajero(cajeroEntity: CajeroEntity): Int
 }
